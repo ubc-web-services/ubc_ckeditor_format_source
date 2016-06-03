@@ -1,0 +1,6 @@
+name = UBC CKEditor Format Source
+description = Settings to extend CKEditor's Source formatting button, applying line breaks after closing elements.
+package = UBC IT Web Services
+
+core = 7.x
+dependencies[] = ckeditor
