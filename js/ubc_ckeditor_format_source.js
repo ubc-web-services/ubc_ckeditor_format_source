@@ -1,41 +1,48 @@
 (function(){
     CKEDITOR.on('instanceReady', function(e){
-        var instance = e.editor;
-        var rules = {
-                indent : false,
-                breakBeforeOpen : false,
-                breakAfterOpen : false,
-                breakBeforeClose : false,
-                breakAfterClose : true
-        }
-        var blockRules = {
-                indent : false,
-                breakBeforeOpen : true,
-                breakAfterOpen : true,
-                breakBeforeClose : true,
-                breakAfterClose : true
-        }
-        var childRules = {
-                indent : true,
-                breakBeforeOpen : true,
-                breakAfterOpen : false,
-                breakBeforeClose : false,
-                breakAfterClose : true
-        }
-        instance.dataProcessor.writer.setRules( 'p',rules);
-        instance.dataProcessor.writer.setRules( 'div',blockRules);
-        instance.dataProcessor.writer.setRules( 'blockquote',rules);
-        instance.dataProcessor.writer.setRules( 'hr',rules);
-        instance.dataProcessor.writer.setRules( 'h1',rules);
-        instance.dataProcessor.writer.setRules( 'h2',rules);
-        instance.dataProcessor.writer.setRules( 'h3',rules);
-        instance.dataProcessor.writer.setRules( 'h4',rules);
-        instance.dataProcessor.writer.setRules( 'h5',rules);
-        instance.dataProcessor.writer.setRules( 'h6',rules);
-        instance.dataProcessor.writer.setRules( 'ul',rules);
-        instance.dataProcessor.writer.setRules( 'ol',rules);
-        instance.dataProcessor.writer.setRules( 'li',childRules);
-        instance.dataProcessor.writer.setRules( 'img',childRules);
-        instance.dataProcessor.writer.setRules( 'figure',childRules);
+      
+      els = ['table','thead','tbody','tfooter','div'];
+      for (i in els) {
+        e.editor.dataProcessor.writer.setRules(els[i], {
+          indent : true,
+          breakBeforeOpen : true,
+          breakAfterOpen : true,
+          breakBeforeClose : true,
+          breakAfterClose : true
+        });
+      }
+      
+      elsTwo = ['p','hr','h1','h2','h3','h4','h5','h6'];
+      for (i in elsTwo) {
+        e.editor.dataProcessor.writer.setRules(elsTwo[i], {
+          indent : false,
+          breakBeforeOpen : true,
+          breakAfterOpen : false,
+          breakBeforeClose : false,
+          breakAfterClose : true
+        });
+      }
+      
+      elsThree = ['tr','th','ul','ol'];
+      for (i in elsTwo) {
+        e.editor.dataProcessor.writer.setRules(elsThree[i], {
+          indent : true,
+          breakBeforeOpen : true,
+          breakAfterOpen : false,
+          breakBeforeClose : false,
+          breakAfterClose : true
+        });
+      }
+      
+      elsFour = ['td','li','img','figure','figcaption','blockquote','ul','ol'];
+      for (i in elsTwo) {
+        e.editor.dataProcessor.writer.setRules(elsFour[i], {
+          indent : true,
+          breakBeforeOpen : true,
+          breakAfterOpen : false,
+          breakBeforeClose : false,
+          breakAfterClose : true
+        });
+      }
     });
 })();
