@@ -24,7 +24,7 @@
       }
       
       elsThree = ['tr','th','ul','ol'];
-      for (i in elsTwo) {
+      for (i in elsThree) {
         e.editor.dataProcessor.writer.setRules(elsThree[i], {
           indent : true,
           breakBeforeOpen : true,
@@ -35,7 +35,7 @@
       }
       
       elsFour = ['td','li','img','figure','figcaption','blockquote','ul','ol'];
-      for (i in elsTwo) {
+      for (i in elsFour) {
         e.editor.dataProcessor.writer.setRules(elsFour[i], {
           indent : true,
           breakBeforeOpen : true,
