@@ -1,0 +1,7 @@
+name: UBC CKEditor Format Source
+type: module
+description: Settings to extend CKEditor's Source formatting button, applying line breaks after closing elements.
+package: UBC Web Services
+dependencies:
+  - drupal:ckeditor
+core: '8.x'
